@@ -3,7 +3,7 @@ const url = require('url');
 
 function requestListener(request, response) {
   let pathname = url.parse(request.url).pathname;
-  if (pathname ==="/") pathname = "./index.html";
+  if (pathname ==="/") pathname = "/index.html";
 
   const client = request.socket.address();
 
