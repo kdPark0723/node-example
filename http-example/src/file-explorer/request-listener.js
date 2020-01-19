@@ -9,13 +9,13 @@ function requestListener(request, response) {
 
   console.log(`[${client.address}:${client.port}]: Request Get ${pathname}.`);
 
-  const src = fs.createReadStream(`./${pathname}`);
-  src.on('error', () => {
+  const fileSteam = fs.createReadStream(`./${pathname}`);
+  fileSteam.on('error', () => {
     response.writeHead(400, { 'Content-Type': 'text/html' });
     response.end('<h1>Not Found</h1>');
   });
 
-  src.pipe(response);
+  fileSteam.pipe(response);
 }
 
 module.exports = requestListener;
